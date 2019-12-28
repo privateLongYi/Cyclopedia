@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qing.mapper.CyContentMapper">
+
+  <resultMap id="BaseResultMap" type="com.qing.entity.CyContent">
+    <id column="cy_content_id" jdbcType="INTEGER" property="cyContentId" />
+    <result column="cy_entryname" jdbcType="VARCHAR" property="cyEntryname" />
+    <result column="cy_imgurl" jdbcType="VARCHAR" property="cyImgurl" />
+    <result column="cy_type" jdbcType="INTEGER" property="cyType" />
+  </resultMap>
+
+</mapper>

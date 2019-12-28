@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qing.mapper.CyClassifyMapper">
+
+  <resultMap id="BaseResultMap" type="com.qing.entity.CyClassify">
+    <id column="cy_classify_id" jdbcType="INTEGER" property="cyClassifyId" />
+    <result column="cy_type" jdbcType="VARCHAR" property="cyType" />
+  </resultMap>
+
+  <!--新增-->
+  <insert id="saveCyClassify">
+    INSERT INTO cy_classify(cy_type) VALUES (#{cy_type})
+  </insert>
+
+  <!--根据pid删除-->
+  <delete id="delCyClassifyByCcid">
+    DELETE FROM cy_classify WHERE cy_classify_id = #{ccid}
+  </delete>
+
+  <!--根据pid修改-->
+  <update id="editCyClassifyByCcid">
+    UPDATE cy_classify SET cy_type = #{cy_type} WHERE cy_classify_id = #{ccid}
+  </update>
+
+  <!--根据pid查询-->
+  <select id="queryCyClassifyByCcid" resultMap="BaseResultMap">
+    SELECT * FROM cy_classify WHERE cy_classify_id = #{ccid}
+  </select>
+
+  <!--查询所有-->
+  <select id="queryAllCyClassify" resultMap="BaseResultMap">
+    SELECT * FROM cy_classify
+  </select>
+
+</mapper>
