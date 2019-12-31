@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class CyClassify implements Serializable {
     private Integer cyClassifyId;
 
-    private String cyType;
+    private String cyTypeName;
 
     @Override
     public String toString() {
         return "CyClassify{" +
                 "cyClassifyId=" + cyClassifyId +
-                ", cyType='" + cyType + '\'' +
+                ", cyType='" + cyTypeName + '\'' +
                 '}';
     }
 
@@ -24,10 +24,10 @@ public class CyClassify implements Serializable {
     }
 
     public String getCyType() {
-        return cyType;
+        return cyTypeName;
     }
 
     public void setCyType(String cyType) {
-        this.cyType = cyType == null ? null : cyType.trim();
+        this.cyTypeName = cyType == null ? null : cyType.trim();
     }
 }

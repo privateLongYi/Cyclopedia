@@ -7,17 +7,23 @@ public class CyContent implements Serializable {
 
     private String cyEntryname;
 
+    private String cyDetails;
+
     private String cyImgurl;
 
     private Integer cyType;
+
+    private Integer cyIspush;
 
     @Override
     public String toString() {
         return "CyContent{" +
                 "cyContentId=" + cyContentId +
                 ", cyEntryname='" + cyEntryname + '\'' +
+                ", cyDetails='" + cyDetails + '\'' +
                 ", cyImgurl='" + cyImgurl + '\'' +
                 ", cyType=" + cyType +
+                ", cyIspush=" + cyIspush +
                 '}';
     }
 
@@ -34,7 +40,15 @@ public class CyContent implements Serializable {
     }
 
     public void setCyEntryname(String cyEntryname) {
-        this.cyEntryname = cyEntryname == null ? null : cyEntryname.trim();
+        this.cyEntryname = cyEntryname;
+    }
+
+    public String getCyDetails() {
+        return cyDetails;
+    }
+
+    public void setCyDetails(String cyDetails) {
+        this.cyDetails = cyDetails;
     }
 
     public String getCyImgurl() {
@@ -42,7 +56,7 @@ public class CyContent implements Serializable {
     }
 
     public void setCyImgurl(String cyImgurl) {
-        this.cyImgurl = cyImgurl == null ? null : cyImgurl.trim();
+        this.cyImgurl = cyImgurl;
     }
 
     public Integer getCyType() {
@@ -51,5 +65,13 @@ public class CyContent implements Serializable {
 
     public void setCyType(Integer cyType) {
         this.cyType = cyType;
+    }
+
+    public Integer getCyIspush() {
+        return cyIspush;
+    }
+
+    public void setCyIspush(Integer cyIspush) {
+        this.cyIspush = cyIspush;
     }
 }
