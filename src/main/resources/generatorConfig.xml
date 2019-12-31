@@ -44,10 +44,7 @@
         </javaClientGenerator>
 
         <!-- 指定数据库表 -->
-
-        <table tableName="cy_classify"></table>
-        <table tableName="cy_content"></table>
-        <table tableName="user"></table>
+        <table tableName="menu"></table>
         <!-- 有些表的字段需要指定java类型
          <table schema="" tableName="">
            <columnOverride column="" javaType="" />
