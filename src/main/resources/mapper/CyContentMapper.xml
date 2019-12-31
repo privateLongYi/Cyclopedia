@@ -9,4 +9,39 @@
     <result column="cy_type" jdbcType="INTEGER" property="cyType" />
   </resultMap>
 
+  <!--新增-->
+  <insert id="saveCyContent">
+     INSERT INTO cy_classify(cy_type) VALUES (#{cy_type})
+  </insert>
+
+  <!--根据类别删除-->
+  <delete id="delCyContentbytype">
+    DELETE  FROM cy_content WHERE cy_type=#{cy_type}
+  </delete>
+
+  <!--根据id删除-->
+  <delete id="delCyContentbyid">
+    DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id}
+  </delete>
+
+  <!--根据id修改-->
+  <update id="updCyContentbyid">
+    UPDATE cy_content SET  cy_entryname= #{cy_entryname},cy_imgurl= #{cy_imgurl},cy_type= #{cy_type} WHERE cy_content_id = #{cy_content_id}
+  </update>
+
+  <!--根据id查询-->
+  <select id="queryCyContentbyid">
+    SELECT * FROM cy_content WHERE cy_content_id=#{cy_content_id}
+  </select>
+
+  <!--根据类别查询-->
+  <select id="queryCyContentbytype">
+    SELECT * FROM  cy_content WHERE  cy_type=#{cy_type}
+  </select>
+
+  <!--查询所有-->
+  <select id="queryall">
+    SELECT * FROM  cy_content
+  </select>
+
 </mapper>
