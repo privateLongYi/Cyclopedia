@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qing.mapper.MenuMapper">
+
+  <resultMap id="BaseResultMap" type="com.qing.entity.Menu">
+    <id column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="menu_url" jdbcType="VARCHAR" property="menuUrl" />
+    <result column="menu_pid" jdbcType="INTEGER" property="menuPid" />
+  </resultMap>
+
+  <select id="getMenu" resultMap="BaseResultMap">
+    SELECT *, (SELECT COUNT(*) FROM menu me WHERE me.menu_pid = m.menu_id)
+     childCount FROM menu m
+  </select>
+
+</mapper>

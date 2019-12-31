@@ -4,12 +4,12 @@
 
   <resultMap id="BaseResultMap" type="com.qing.entity.CyClassify">
     <id column="cy_classify_id" jdbcType="INTEGER" property="cyClassifyId" />
-    <result column="cy_type" jdbcType="VARCHAR" property="cyType" />
+    <result column="cy_type_name" jdbcType="VARCHAR" property="cyTypeName" />
   </resultMap>
 
   <!--新增-->
   <insert id="saveCyClassify">
-    INSERT INTO cy_classify(cy_type) VALUES (#{cy_type})
+    INSERT INTO cy_classify(cy_type_name) VALUES (#{cyTypeName})
   </insert>
 
   <!--根据pid删除-->
@@ -19,7 +19,7 @@
 
   <!--根据pid修改-->
   <update id="editCyClassifyByCcid">
-    UPDATE cy_classify SET cy_type = #{cy_type} WHERE cy_classify_id = #{ccid}
+    UPDATE cy_classify SET cy_type_name = #{cyTypeName} WHERE cy_classify_id = #{ccid}
   </update>
 
   <!--根据pid查询-->

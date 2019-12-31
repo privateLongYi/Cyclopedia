@@ -68,13 +68,13 @@
 
 /* 这里将是绿色主题的内容 */
 .green{
-	background: #00a65a !important;
+	background: #00c0ef !important;
 }
 .green-box{
-	border-top: 3px solid #00a65a;
+	border-top: 3px solid #00c0ef;
 }
 .green-g{
-	background: #008d4c;
+	background: #00c0ef;
 }
 .green-none:focus,
 .green-none:HOVER,
