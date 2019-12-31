@@ -32,4 +32,10 @@
     SELECT * FROM cy_classify
   </select>
 
+  <!--查询分类表前八条-->
+  <select id="GetEightCyClassify">
+    select * from cy_classify limit 0,8
+  </select>
+
+
 </mapper>

@@ -22,4 +22,7 @@ public interface CyClassifyMapper {
     //查询全部
     List<CyClassify> queryAllCyClassify();
 
+    //获取分类表前八条
+    CyClassify GetEightCyClassify(CyClassify cyClassify);
+
 }
