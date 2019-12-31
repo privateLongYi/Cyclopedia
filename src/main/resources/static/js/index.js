@@ -20,7 +20,7 @@ $(function () {
             if (data[i].subset.length > 0) {
                 for (var j = 0; j < data[i].subset.length; j++) {
                     html += "<li>" +
-                            "   <a href='" + data[i].subset[j].url + "'>" +
+                            "   <a href='javascript:void(0);' onclick='changepath(&quot;" + data[i].subset[j].url + "&quot;)'>" +
                             "       <span class='glyphicon glyphicon-record'></span>" +
                             "       <span>" + data[i].subset[j].name + "</span>" +
                             "   </a>" +
