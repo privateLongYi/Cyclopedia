@@ -1,12 +1,10 @@
-package com.qing.mapper;
+package com.qing.service;
 
 import com.qing.entity.CyContent;
 
 import java.util.List;
 
-public interface CyContentMapper {
-
-
+public interface ICyContentService {
     //新增
     void saveCyContent(CyContent cyContent);
 
@@ -23,9 +21,8 @@ public interface CyContentMapper {
     CyContent queryCyContentbyid(CyContent cyContent);
 
     //类别查询
-    List<CyContent>queryCyContentbytype(CyContent cyContent);
+    List<CyContent> queryCyContentbytype(CyContent cyContent);
 
     //查询所有
     List<CyContent>queryall();
-
 }
