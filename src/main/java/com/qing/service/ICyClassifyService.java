@@ -21,4 +21,7 @@ public interface ICyClassifyService {
     //查询全部
     List<CyClassify> queryAllCyClassify();
 
+    //获取分类表前八条
+    List<CyClassify> GetEightCyClassify(CyClassify cyClassify);
+
 }

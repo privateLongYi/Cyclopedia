@@ -23,6 +23,6 @@ public interface CyClassifyMapper {
     List<CyClassify> queryAllCyClassify();
 
     //获取分类表前八条
-    CyClassify GetEightCyClassify(CyClassify cyClassify);
+    List<CyClassify> GetEightCyClassify(CyClassify cyClassify);
 
 }

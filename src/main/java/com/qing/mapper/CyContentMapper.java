@@ -29,6 +29,6 @@ public interface CyContentMapper {
     List<CyContent>queryall();
 
     //获取内容表前八条
-    CyContent GetEightCyContent(CyContent cyContent);
+    List<CyContent> GetEightCyContent(CyContent cyContent);
 
 }

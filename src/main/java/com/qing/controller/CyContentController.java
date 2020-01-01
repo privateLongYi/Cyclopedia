@@ -1,6 +1,7 @@
 package com.qing.controller;
 
 
+import com.qing.entity.CyClassify;
 import com.qing.entity.CyContent;
 import com.qing.service.impl.CyContentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +64,12 @@ public class CyContentController {
             cyContentService.queryCyContentbyid(cyContent);
             return "redirect:queryAll";
         }
+
+    //获取前八条
+    @RequestMapping("GetEightCyContent")
+    public String GetEightCyContent(CyContent cyContent, ModelMap map){
+        List<CyContent> cyContentList=cyContentService.GetEightCyContent(cyContent);
+        map.addAttribute("cyContentList",cyContentList);
+        return "list";
+    }
 }

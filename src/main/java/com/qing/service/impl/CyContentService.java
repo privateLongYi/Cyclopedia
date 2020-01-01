@@ -48,5 +48,10 @@ public class CyContentService implements ICyContentService {
         return cyContentMapper.queryall();
     }
 
+    @Override
+    public List<CyContent> GetEightCyContent(CyContent cyContent) {
+        return cyContentMapper.GetEightCyContent(cyContent);
+    }
+
 
 }
