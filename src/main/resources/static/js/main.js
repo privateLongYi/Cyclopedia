@@ -31,7 +31,15 @@ $(function () {
                     "   <td>"+data[i].cyTypeName+"</td>" +
                     "</tr>";
         }
+        $("#push").html(push);
     });
+
+    var user = "<tr>" +
+               "    <td>编号</td>\" +
+               "    <td>用户名</td>" +
+               "    <td>密码</td>" +
+               "    <td>是否启用</td>" +
+               "</tr>";
 
     //获取前八个用户
     $.post("", function (data) {
@@ -43,6 +51,7 @@ $(function () {
                     "   <td>"+data[i].isFlag+"</td>" +
                     "</tr>";
         }
+        $("#user").html(user);
     });
 
 })

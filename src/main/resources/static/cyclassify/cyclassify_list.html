@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>百科-百科分类列表</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/cyclassify.js"></script>
+    <link rel="stylesheet" href="../css/box.css"/>
+    <style type="text/css">
+        a {
+            color: black;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .bgc-w {
+            background-color: #fff;
+        }
+
+        .table > tbody > tr > td {
+            border-top: 1px solid rgba(245, 245, 220, 0.29);
+        }
+
+        .txt{
+            width: 30px;
+            height: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="padding-top: 10px;">
+    <div class="col-md-2">
+        <h1 style="font-size: 24px; margin: 0;" class="">分类管理</h1>
+    </div>
+    <div class="col-md-10 text-right">
+        <a href="@{/main.html}"><span class="glyphicon glyphicon-home"></span> 首页</a>
+        > <a disabled="disabled">分类管理</a>
+    </div>
+</div>
+
+<div class="row" style="padding-top: 15px;">
+    <div class="col-md-12">
+        <!--id="container"-->
+        <div class="bgc-w box box-primary">
+            <!--盒子头-->
+            <div class="box-header">
+                <h3 class="box-title">
+                    <a href="goSave" class="label label-success"
+                       style="padding: 5px;"> <span class="glyphicon glyphicon-plus"></span>
+                        新增
+                    </a>
+                    <a href="javascript:{window.location.reload();};" class="label label-success"
+                       style="padding: 5px;margin-left:5px;">
+                        <span class="glyphicon glyphicon-refresh"></span> 刷新
+                    </a>
+                </h3>
+                <div class="box-tools">
+                    <div class="input-group" style="width: 150px;">
+                        <input id="keyword" type="text" class="form-control input-sm baseKey"
+                               placeholder="按名称查找"/>
+                        <div class="input-group-btn">
+                            <a href="javascript:search();" style="height: 30px;"
+                               class="btn btn-sm btn-default baseKeySubmit"><span
+                                    class="glyphicon glyphicon-search"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--盒子身体-->
+            <div class="box-body no-padding thistable">
+                <div class="table-responsive" id="tab">
+
+                </div>
+            </div>
+            <!--盒子尾-->
+
+            <!-- 分页头部 -->
+            <div class="box-footer no-padding" style="margin-top: -20px;">
+                <div style="padding: 5px;">
+                    <div id="page"
+                         style="background: #fff; border: 0px; margin-top: 0px; padding: 2px; height: 25px;">
+                        <div style="width: 40%; float: left;">
+                            <div class="pageInfo" style="margin-left: 5px;">
+                                共<span id="totalCount"></span>条 | 每页
+                                <select id="count" onchange="sel()">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                </select>条
+                                | 共<span id="totalPage"></span>页
+                            </div>
+                        </div>
+                        <div style="width: 60%; float: left;">
+                            <div class="pageOperation">
+                                <a id="previous" href="javascript:previousPage();"
+                                   class="btn btn-sm btn-default no-padding tableup" style="width: 30px; height: 20px;"> <span
+                                        class="glyphicon glyphicon-triangle-left"></span></a>
+                                <a disabled="disabled" class="btn btn-default no-padding"
+                                   style="width: 30px; height: 20px;">
+                                    <input id="nowPage" class="txt"/>
+                                </a>
+                                <a href="javascript:skipPage();" class="btn btn-default no-padding"
+                                   style="width: 30px; height: 20px;">
+                                    跳转
+                                </a>
+                                <a id="next" href="javascript:nextPage();"
+                                   class="btn btn-sm btn-default no-padding tabledown"
+                                   style="width: 30px; height: 20px;"> <span
+                                        class="glyphicon glyphicon-triangle-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 分页头部 -->
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
