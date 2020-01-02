@@ -53,11 +53,7 @@ function query(page, count, keyword) {
                         "<td><span>" + data[i].sortId + "</span></td>" +
                         "<td><span class='labels'><label><input type='checkbox' checked " +
                         "disabled><i>✓</i></label></span></td>" +
-                        "<td><a href='changeSortId?parentid=0&sortid=0&menuid=1&num=1' class='label sheding'>" +
-                        "<span class='glyphicon glyphicon-arrow-up'></span> 上移</a> " +
-                        "<a href='changeSortId?parentid=0&sortid=0&menuid=1&num=-1' class='label sheding'>" +
-                        "<span class='glyphicon glyphicon-arrow-down'></span> 下移</a> " +
-                        "<a href='querySysMenuById?menuId=" + data[i].menuId + "' class='label xiugai'>" +
+                        "<td><a href='querySysMenuById?menuId=" + data[i].menuId + "' class='label xiugai'>" +
                         "<span class='glyphicon glyphicon-edit'></span> 修改</a> " +
                         "<a href='javascript:del(" + data[i].menuId + ");' class='label shanchu'>" +
                         "<span class='glyphicon glyphicon-remove'></span> 删除</a>";
