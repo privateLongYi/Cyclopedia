@@ -35,6 +35,7 @@ public interface CyContentMapper {
 
     //分页查询内容表
     List<CyContent> querCyContent(@Param("page") Integer page,
-                                   @Param("count") Integer count);
+                                   @Param("count") Integer count,
+                                  @Param("keyword") String keyword);
 
 }

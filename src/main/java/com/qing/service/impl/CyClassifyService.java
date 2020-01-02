@@ -45,7 +45,7 @@ public class CyClassifyService implements ICyClassifyService {
     }
 
     @Override
-    public List<CyClassify> querCyClassify(Integer page, Integer count) {
-        return cyClassifyMapper.querCyClassify(page,count);
+    public List<CyClassify> querCyClassify(Integer page, Integer count, String keyword) {
+        return cyClassifyMapper.querCyClassify(page, count, keyword);
     }
 }

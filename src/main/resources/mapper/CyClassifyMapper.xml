@@ -37,9 +37,15 @@
     select * from cy_classify limit 0,8
   </select>
 
-  <!--分页查询分类表-->
+  <!--根据条件分页查询分类表-->
   <select id="querCyClassify">
-    SELECT * FROM cy_classify LIMIT #{page}, #{count}
+    SELECT * FROM cy_classify
+    <where>
+      <if test="keyword != null and keyword != ''">
+        cy_type_name LIKE '%${keyword}%'
+      </if>
+    </where>
+     LIMIT #{page}, #{count}
   </select>
 
 </mapper>

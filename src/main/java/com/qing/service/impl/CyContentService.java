@@ -54,8 +54,8 @@ public class CyContentService implements ICyContentService {
     }
 
     @Override
-    public List<CyContent> querCyContent(Integer page, Integer count) {
-        return cyContentMapper.querCyContent(page,count);
+    public List<CyContent> querCyContent(Integer page, Integer count,String keyword) {
+        return cyContentMapper.querCyContent(page,count,keyword);
     }
 
 

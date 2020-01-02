@@ -32,6 +32,6 @@ public interface ICyContentService {
     List<CyContent> GetEightCyContent(CyContent cyContent);
 
     //分页查询内容表
-    List<CyContent> querCyContent(@Param("page") Integer page, @Param("count") Integer count);
+    List<CyContent> querCyContent(@Param("page") Integer page, @Param("count") Integer count,@Param("keyword") String keyword);
 
 }

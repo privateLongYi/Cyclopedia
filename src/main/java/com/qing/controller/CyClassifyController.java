@@ -61,10 +61,10 @@ public class CyClassifyController {
         return "list";
     }
 
-    //分页查询
+    //分页查询根据分类名
     @RequestMapping("querCyClassify")
-    public String querCyClassify(Integer page,Integer count,ModelMap map){
-        List<CyClassify> cyClassifyList=cyClassifyService.querCyClassify((page-1)*count,count);
+    public String querCyClassify(Integer page,Integer count,String keyword,ModelMap map){
+        List<CyClassify> cyClassifyList=cyClassifyService.querCyClassify((page-1)*count,count,keyword);
         map.addAttribute("cyClassifyList",cyClassifyList);
         return "list";
     }

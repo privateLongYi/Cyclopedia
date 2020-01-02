@@ -27,6 +27,7 @@ public interface ICyClassifyService {
 
     //分页查询分页表
     List<CyClassify> querCyClassify(@Param("page") Integer page,
-                                    @Param("count") Integer count);
+                                    @Param("count") Integer count,
+                                    @Param("keyword") String keyword);
 
 }

@@ -75,8 +75,8 @@ public class CyContentController {
 
     //分页查询
     @RequestMapping("querCyContent")
-    public String querCyContent(Integer page,Integer count,ModelMap map){
-        List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count);
+    public String querCyContent(Integer page,Integer count,String keyword,ModelMap map){
+        List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count,keyword);
         map.addAttribute("cyContentList",cyContentList);
         return "list";
     }

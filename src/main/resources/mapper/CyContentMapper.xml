@@ -16,27 +16,37 @@
      INSERT INTO cy_classify(cy_type) VALUES (#{cy_type})
   </insert>
 
-  <!--根据类别删除-->
+  <!--根据类别删除(推送)-->
   <delete id="delCyContentbytype">
-    DELETE  FROM cy_content WHERE cy_type=#{cy_type}
+    DELETE  FROM cy_content WHERE cy_type=#{cy_type} AND cy_ispush=1
+  </delete>
+
+  <!--根据类别删除-->
+  <delete id="delCyContentbytypeT">
+    DELETE  FROM cy_content WHERE cy_type=#{cy_type} AND cy_ispush=0
+  </delete>
+
+  <!--根据id删除(推送)-->
+  <delete id="delCyContentbyid">
+    DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=1
   </delete>
 
   <!--根据id删除-->
-  <delete id="delCyContentbyid">
-    DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id}
+  <delete id="delCyContentbyidT">
+    DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=0
   </delete>
 
-  <!--根据id修改-->
+  <!--根据id修改(推送)-->
   <update id="updCyContentbyid">
-    UPDATE cy_content SET  cy_entryname= #{cy_entryname},cy_imgurl= #{cy_imgurl},cy_type= #{cy_type} WHERE cy_content_id = #{cy_content_id}
+    UPDATE cy_content SET  cy_entryname= #{cy_entryname},cy_imgurl= #{cy_imgurl},cy_type= #{cy_type} WHERE cy_content_id = #{cy_content_id} AND cy_ispush=1
   </update>
 
-  <!--根据id查询-->
+  <!--根据id查询(推送)-->
   <select id="queryCyContentbyid">
     SELECT * FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=1
   </select>
 
-  <!--根据类别查询-->
+  <!--根据类别查询(推送)-->
   <select id="queryCyContentbytype">
     SELECT * FROM  cy_content WHERE  cy_type=#{cy_type} AND cy_ispush=1
   </select>
@@ -46,14 +56,20 @@
     SELECT * FROM  cy_content WHERE cy_ispush=1
   </select>
 
-  <!--查询内容表前八条-->
+  <!--查询内容表前八条(推送)-->
   <select id="GetEightCyContent">
     select * from cy_content limit 0,8 WHERE cy_ispush=1
   </select>
 
-  <!--分页查询内容表-->
+  <!--分页查询内容表(推送)-->
   <select id="querCyClassify">
-   SELECT * FROM cy_content  WHERE cy_ispush=1 LIMIT  #{page}, #{count}
+   SELECT * FROM cy_content
+    <where>
+      <if test="keyword != null and keyword != ''">
+        cy_type_name LIKE '%${keyword}%' AND cy_ispush=1
+      </if>
+    </where>
+    LIMIT  #{page}, #{count}
   </select>
 
 </mapper>
