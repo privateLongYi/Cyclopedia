@@ -27,11 +27,13 @@ public class UserController {
     //登录
     @RequestMapping("login")
     private String login(User user){
-        User u =  userService.login(user);
-        if (u == null){
+        int user_id =  userService.login(user);
+        if (user_id ==0){
             return "login";
         }
        return "index";
+
+
     }
 
     //获取菜单
@@ -64,9 +66,17 @@ public class UserController {
 
     //获取前八条
     @RequestMapping("GetEightUser")
-    @ResponseBody
-    public List<User> GetEightUser(User user, ModelMap map){
-        return userService.GetEightUser(user);
+    public String GetEightUser(User user, ModelMap map){
+        List<User> userList=userService.GetEightUser(user);
+        map.addAttribute("userList",userList);
+        return "list";
     }
 
+    //分页查询用户表
+    @RequestMapping("queryUserPaging")
+    public String queryUserPaging(Integer page,Integer count,String keyword,ModelMap map){
+        List<User> userList=userService.queryUserPaging((page-1)*count,count,keyword);
+        map.addAttribute("userList",userList);
+        return "list";
+    }
 }

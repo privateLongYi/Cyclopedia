@@ -1,6 +1,7 @@
 package com.qing.service;
 
 import com.qing.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -10,5 +11,8 @@ public interface IUser {
    List<User>  GetEightUser(User user);
 
     //登陆
-    User login(User user);
+    int login(User user);
+
+    //分页查询用户表
+    List<User> queryUserPaging(@Param("page") Integer page, @Param("count") Integer count, @Param("keyword") String keyword);
 }

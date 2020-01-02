@@ -15,6 +15,15 @@ public interface CyContentMapper {
     //类别删除
     void delCyContentbytype(CyContent cyContent);
 
+    //类别删除(推送)
+    void delCyContentbytypePushcontent(CyContent cyContent);
+
+    //类别查询
+    List<CyContent>queryCyContentbytype(CyContent cyContent);
+
+    //类别查询(推送)
+    List<CyContent>queryCyContentbytypePushcontent(CyContent cyContent);
+
     //id删除
     void delCyContentbyid(CyContent cyContent);
 
@@ -24,17 +33,25 @@ public interface CyContentMapper {
     //id查询
     CyContent queryCyContentbyid(CyContent cyContent);
 
-    //类别查询
-    List<CyContent>queryCyContentbytype(CyContent cyContent);
-
     //查询所有
     List<CyContent>queryall();
+
+    //查询所有(推送)
+    List<CyContent>queryallPushcontent();
+
+    //查询所有(不推送)
+    List<CyContent>queryallNoPushcontent();
 
     //获取内容表前八条
     List<CyContent> GetEightCyContent(CyContent cyContent);
 
+    //获取内容表前八条(推送)
+    List<CyContent> GetEightCyContentPushcontent(CyContent cyContent);
+
     //分页查询内容表
-    List<CyContent> querCyContent(@Param("page") Integer page,
-                                   @Param("count") Integer count);
+    List<CyContent> querCyContent(@Param("page") Integer page, @Param("count") Integer count, @Param("keyword") String keyword);
+
+    //分页查询内容表(推送)
+    List<CyContent> querCyClassifyPushcontent(@Param("page") Integer page, @Param("count") Integer count, @Param("keyword") String keyword);
 
 }

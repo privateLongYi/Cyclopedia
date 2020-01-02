@@ -20,7 +20,12 @@ public class UserService  implements IUser{
     }
 
     @Override
-    public User login(User user) {
+    public int login(User user) {
         return userMapper.login(user);
+    }
+
+    @Override
+    public List<User> queryUserPaging(Integer page, Integer count, String keyword) {
+        return userMapper.queryUserPaging(page, count, keyword);
     }
 }

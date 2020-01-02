@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("classify")
+@RequestMapping("cc")
 public class CyClassifyController {
 
     @Autowired
@@ -56,15 +55,16 @@ public class CyClassifyController {
 
     //获取前八条
     @RequestMapping("GetEightCyClassify")
-    @ResponseBody
-    public List<CyClassify> GetEightCyClassify(CyClassify cyClassify,ModelMap map){
-        return cyClassifyService.GetEightCyClassify(cyClassify);
+    public String GetEightCyClassify(CyClassify cyClassify,ModelMap map){
+        List<CyClassify> cyClassifyList=cyClassifyService.GetEightCyClassify(cyClassify);
+        map.addAttribute("CyClassify",cyClassifyList);
+        return "list";
     }
 
-    //分页查询
+    //分页查询根据分类名
     @RequestMapping("querCyClassify")
-    public String querCyClassify(Integer page,Integer count,ModelMap map){
-        List<CyClassify> cyClassifyList=cyClassifyService.querCyClassify((page-1)*count,count);
+    public String querCyClassify(Integer page,Integer count,String keyword,ModelMap map){
+        List<CyClassify> cyClassifyList=cyClassifyService.querCyClassify((page-1)*count,count,keyword);
         map.addAttribute("cyClassifyList",cyClassifyList);
         return "list";
     }

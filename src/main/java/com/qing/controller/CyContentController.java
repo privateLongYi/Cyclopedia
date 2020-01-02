@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("content")
+@RequestMapping("cc2")
 public class CyContentController {
 
         @Autowired
@@ -23,6 +22,22 @@ public class CyContentController {
         @RequestMapping("queryall")
         public String queryall(ModelMap map){
             List<CyContent> cyContent = cyContentService.queryall();
+            map.addAttribute("CyClassifyes", cyContent);
+            return "list";
+        }
+
+        //查询所有(推送)
+        @RequestMapping("queryallPushcontent")
+        public String queryallPushcontent(ModelMap map){
+            List<CyContent> cyContent = cyContentService.queryallPushcontent();
+            map.addAttribute("CyClassifyes", cyContent);
+            return "list";
+        }
+
+        //查询所有(不推送)
+        @RequestMapping("queryallNoPushcontent")
+        public String queryallNoPushcontent(ModelMap map){
+            List<CyContent> cyContent = cyContentService.queryallNoPushcontent();
             map.addAttribute("CyClassifyes", cyContent);
             return "list";
         }
@@ -38,6 +53,13 @@ public class CyContentController {
         @RequestMapping("delCyContentbytype")
         public String delCyContentbytype(CyContent cyContent){
             cyContentService.delCyContentbytype(cyContent);
+            return "redirect:queryAll";
+        }
+
+        //类别删除(推送)
+        @RequestMapping("delCyContentbytypePushcontent")
+        public String delCyContentbytypePushcontent(CyContent cyContent){
+            cyContentService.delCyContentbytypePushcontent(cyContent);
             return "redirect:queryAll";
         }
 
@@ -59,6 +81,14 @@ public class CyContentController {
             cyContentService.queryCyContentbytype(cyContent);
             return "redirect:queryAll";
         }
+
+        //类别查询
+        @RequestMapping("queryCyContentbytypePushcontent")
+        public String queryCyContentbytypePushcontent(CyContent cyContent){
+            cyContentService.queryCyContentbytypePushcontent(cyContent);
+            return "redirect:queryAll";
+        }
+
         //id查询
         @RequestMapping("queryCyContentbyid")
         public String queryCyContentbyid(CyContent cyContent){
@@ -66,18 +96,35 @@ public class CyContentController {
             return "redirect:queryAll";
         }
 
-    //获取前八条
-    @RequestMapping("GetEightCyContent")
-    @ResponseBody
-    public List<CyContent> GetEightCyContent(CyContent cyContent, ModelMap map){
-        return cyContentService.GetEightCyContent(cyContent);
-    }
+        //获取前八条
+        @RequestMapping("GetEightCyContent")
+        public String GetEightCyContent(CyContent cyContent, ModelMap map){
+            List<CyContent> cyContentList=cyContentService.GetEightCyContent(cyContent);
+            map.addAttribute("cyContentList",cyContentList);
+            return "list";
+        }
 
-    //分页查询
-    @RequestMapping("querCyContent")
-    public String querCyContent(Integer page,Integer count,ModelMap map){
-        List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count);
-        map.addAttribute("cyContentList",cyContentList);
-        return "list";
-    }
+        //获取前八条(推送)
+        @RequestMapping("GetEightCyContentPushcontent")
+        public String GetEightCyContentPushcontent(CyContent cyContent, ModelMap map){
+            List<CyContent> cyContentList=cyContentService.GetEightCyContentPushcontent(cyContent);
+            map.addAttribute("cyContentList",cyContentList);
+            return "list";
+        }
+
+        //分页查询
+        @RequestMapping("querCyContent")
+        public String querCyContent(Integer page,Integer count,String keyword,ModelMap map){
+            List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count,keyword);
+            map.addAttribute("cyContentList",cyContentList);
+            return "list";
+        }
+
+        //分页查询(推送)
+        @RequestMapping("querCyClassifyPushcontent")
+        public String querCyClassifyPushcontent(Integer page,Integer count,String keyword,ModelMap map){
+            List<CyContent> cyContentList=cyContentService.querCyClassifyPushcontent((page-1)*count,count,keyword);
+            map.addAttribute("cyContentList",cyContentList);
+            return "list";
+        }
 }

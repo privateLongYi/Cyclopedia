@@ -10,12 +10,23 @@
   </resultMap>
 
   <!--查询用户表前八条-->
-  <select id="GetEightUser" resultMap="BaseResultMap">
+  <select id="GetEightUser">
     select * from User limit 0,8
   </select>
 
   <!--登陆-->
-  <select id="login" resultMap="BaseResultMap">
-    select * from user where user_name=#{userName} and `password`=#{password}
+  <select id="login">
+    select user_id from user where user_name=#{userName} and `password`=#{password} AND is_flag=1
+  </select>
+
+  <!--分页查询-->
+  <select id="querCyClassify">
+    SELECT * FROM user
+    <where>
+      <if test="keyword != null and keyword != ''">
+        user_name LIKE '%${keyword}%' AND is_flag=1
+      </if>
+    </where>
+    LIMIT  #{page}, #{count}
   </select>
 </mapper>
