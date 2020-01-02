@@ -1,6 +1,8 @@
 package com.qing.mapper;
 
+import com.qing.entity.CyClassify;
 import com.qing.entity.CyContent;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -30,5 +32,9 @@ public interface CyContentMapper {
 
     //获取内容表前八条
     List<CyContent> GetEightCyContent(CyContent cyContent);
+
+    //分页查询内容表
+    List<CyContent> querCyContent(@Param("page") Integer page,
+                                   @Param("count") Integer count);
 
 }

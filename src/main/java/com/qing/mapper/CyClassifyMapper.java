@@ -25,4 +25,8 @@ public interface CyClassifyMapper {
     //获取分类表前八条
     List<CyClassify> GetEightCyClassify(CyClassify cyClassify);
 
+    //分页查询分页表
+    List<CyClassify> querCyClassify(@Param("page") Integer page,
+                                    @Param("count") Integer count);
+
 }

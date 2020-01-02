@@ -18,4 +18,9 @@ public class UserService  implements IUser{
     public List<User> GetEightUser(User user) {
         return userMapper.GetEightUser(user);
     }
+
+    @Override
+    public int login(User user) {
+        return userMapper.login(user);
+    }
 }

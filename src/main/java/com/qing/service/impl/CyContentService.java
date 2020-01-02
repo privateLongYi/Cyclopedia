@@ -53,5 +53,10 @@ public class CyContentService implements ICyContentService {
         return cyContentMapper.GetEightCyContent(cyContent);
     }
 
+    @Override
+    public List<CyContent> querCyContent(Integer page, Integer count) {
+        return cyContentMapper.querCyContent(page,count);
+    }
+
 
 }

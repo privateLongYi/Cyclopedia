@@ -1,6 +1,7 @@
 package com.qing.service;
 
 import com.qing.entity.CyClassify;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,5 +24,9 @@ public interface ICyClassifyService {
 
     //获取分类表前八条
     List<CyClassify> GetEightCyClassify(CyClassify cyClassify);
+
+    //分页查询分页表
+    List<CyClassify> querCyClassify(@Param("page") Integer page,
+                                    @Param("count") Integer count);
 
 }
