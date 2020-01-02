@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hr.mapper.AoaSysMenuMapper">
+<mapper namespace="com.qing.mapper.AoaSysMenuMapper">
 
-  <resultMap id="BaseResultMap" type="com.hr.entity.AoaSysMenu">
+  <resultMap id="BaseResultMap" type="com.qing.entity.AoaSysMenu">
     <id column="menu_id" jdbcType="BIGINT" property="menuId" />
     <result column="is_show" jdbcType="INTEGER" property="isShow" />
     <result column="menu_icon" jdbcType="VARCHAR" property="menuIcon" />
