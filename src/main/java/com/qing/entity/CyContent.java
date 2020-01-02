@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class CyContent implements Serializable {
     private Integer cyContentId;
 
-    private String cyEntryname;
+    private String cyEntryName;
 
     private String cyDetails;
 
     private String cyImgurl;
 
-    private Integer cyType;
+    private Integer cyTypeName;
 
     private Integer cyIspush;
 
@@ -19,10 +19,10 @@ public class CyContent implements Serializable {
     public String toString() {
         return "CyContent{" +
                 "cyContentId=" + cyContentId +
-                ", cyEntryname='" + cyEntryname + '\'' +
+                ", cyEntryname='" + cyEntryName + '\'' +
                 ", cyDetails='" + cyDetails + '\'' +
                 ", cyImgurl='" + cyImgurl + '\'' +
-                ", cyType=" + cyType +
+                ", cyType=" + cyTypeName +
                 ", cyIspush=" + cyIspush +
                 '}';
     }
@@ -35,12 +35,12 @@ public class CyContent implements Serializable {
         this.cyContentId = cyContentId;
     }
 
-    public String getCyEntryname() {
-        return cyEntryname;
+    public String getCyEntryName() {
+        return cyEntryName;
     }
 
-    public void setCyEntryname(String cyEntryname) {
-        this.cyEntryname = cyEntryname;
+    public void setCyEntryName(String cyEntryName) {
+        this.cyEntryName = cyEntryName;
     }
 
     public String getCyDetails() {
@@ -59,12 +59,12 @@ public class CyContent implements Serializable {
         this.cyImgurl = cyImgurl;
     }
 
-    public Integer getCyType() {
-        return cyType;
+    public Integer getCyTypeName() {
+        return cyTypeName;
     }
 
-    public void setCyType(Integer cyType) {
-        this.cyType = cyType;
+    public void setCyTypeName(Integer cyTypeName) {
+        this.cyTypeName = cyTypeName;
     }
 
     public Integer getCyIspush() {

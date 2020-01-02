@@ -10,12 +10,12 @@
   </resultMap>
 
   <!--查询用户表前八条-->
-  <select id="GetEightUser">
+  <select id="GetEightUser" resultMap="BaseResultMap">
     select * from User limit 0,8
   </select>
 
   <!--登陆-->
-  <select id="login">
-    select user_id from user where user_name=#{userName} and `password`=#{password}
+  <select id="login" resultMap="BaseResultMap">
+    select * from user where user_name=#{userName} and `password`=#{password}
   </select>
 </mapper>

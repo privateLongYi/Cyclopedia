@@ -20,7 +20,7 @@ public class UserService  implements IUser{
     }
 
     @Override
-    public int login(User user) {
+    public User login(User user) {
         return userMapper.login(user);
     }
 }

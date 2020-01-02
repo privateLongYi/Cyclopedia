@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link href="images/favicon1.ico" rel="icon" type="image/x-icon"/>
     <link href="images/favicon1.ico" rel="shortcut icon" type="image/x-icon"/>
-    <title>华瑞OA办公自动化系统</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>百科-后台管理系统</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
     <style>
 
@@ -117,7 +117,7 @@
         <div class="cont_login">
             <div class="cont_forms cont_forms_active_login" style="height: 480px;width: 400px;border-radius: 15px;">
                 <div class="cont_img_back_"><img src="images/timg.jpeg" alt="背景图片"/></div>
-                <form action="usermanage/queryAoaUserByNameAndPwd" method="post" onsubmit="return check();">
+                <form action="user/login" method="post" onsubmit="return check();">
                     <div class="cont_form_login" style="display: block;opacity: 1;width: 400px;">
                         <div class="alert alert-danger alert-dismissible" role="alert"
                              style="position: absolute;padding: 11px;display: none">
@@ -129,12 +129,6 @@
                         <input type="text" placeholder="UserName/TeL" autofocus="autofocus" value="" name="userName"
                                class="userName test"/>
                         <input type="password" placeholder="Password" value="" name="password" class="password test"/>
-                        <input type="text" placeholder="Code" style="margin-bottom: 20px;width:152px" name="code"
-                               class="code test"/>
-                        <div class="login-img" style="display:inline-block">
-                            <img class="thisimg" onclick="this.src='captcha?r'+Date.now()" src="images/captcha.jpg"
-                                 alt="验证码" style="width: 100px;height: 42px;border-radius: 3px;">
-                        </div>
                         <br>
                         <button class="btn_login btn" type="submit">LOGIN</button>
 
@@ -143,7 +137,7 @@
             </div>
             <div style="border: 1px solid transparent;">
                 <p style="margin-top: 550px;font-weight: 400;color: #757575;font-size: 22px;letter-spacing:1px ;">
-                    欢迎使用华瑞OA办公自动化系统</p>
+                    欢迎使用百科-后台管理系统</p>
             </div>
         </div>
 
@@ -172,8 +166,8 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<script type="text/javascript" src="easyui/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $('.test').on('click', function () {
         $(this).css('border', "1px solid transparent");

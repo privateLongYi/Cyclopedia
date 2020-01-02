@@ -10,5 +10,5 @@ public interface IUser {
    List<User>  GetEightUser(User user);
 
     //登陆
-    int login(User user);
+    User login(User user);
 }

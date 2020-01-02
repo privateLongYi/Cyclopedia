@@ -4,10 +4,10 @@
 
   <resultMap id="BaseResultMap" type="com.qing.entity.CyContent">
     <id column="cy_content_id" jdbcType="INTEGER" property="cyContentId" />
-    <result column="cy_entryname" jdbcType="VARCHAR" property="cyEntryname" />
+    <result column="cy_entry_name" jdbcType="VARCHAR" property="cyEntryName" />
     <result column="cy_details" jdbcType="VARCHAR" property="cyDetails" />
     <result column="cy_imgurl" jdbcType="VARCHAR" property="cyImgurl" />
-    <result column="cy_type" jdbcType="INTEGER" property="cyType" />
+    <result column="cy_type_name" jdbcType="INTEGER" property="cyTypeName" />
     <result column="cy_ispush" jdbcType="INTEGER" property="cyIspush" />
   </resultMap>
 
@@ -32,27 +32,27 @@
   </update>
 
   <!--根据id查询-->
-  <select id="queryCyContentbyid">
+  <select id="queryCyContentbyid" resultMap="BaseResultMap">
     SELECT * FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=1
   </select>
 
   <!--根据类别查询-->
-  <select id="queryCyContentbytype">
+  <select id="queryCyContentbytype" resultMap="BaseResultMap">
     SELECT * FROM  cy_content WHERE  cy_type=#{cy_type} AND cy_ispush=1
   </select>
 
   <!--查询所有-->
-  <select id="queryall">
+  <select id="queryall" resultMap="BaseResultMap">
     SELECT * FROM  cy_content WHERE cy_ispush=1
   </select>
 
-  <!--查询内容表前八条-->
-  <select id="GetEightCyContent">
-    select * from cy_content limit 0,8 WHERE cy_ispush=1
+  <!--查询推送内容表前八条-->
+  <select id="GetEightCyContent" resultMap="BaseResultMap">
+    select * from cy_content WHERE cy_ispush=1 limit 0,8
   </select>
 
   <!--分页查询内容表-->
-  <select id="querCyClassify">
+  <select id="querCyClassify" resultMap="BaseResultMap">
    SELECT * FROM cy_content  WHERE cy_ispush=1 LIMIT  #{page}, #{count}
   </select>
 

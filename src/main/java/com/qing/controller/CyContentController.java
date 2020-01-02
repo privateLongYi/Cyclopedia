@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("cc2")
+@RequestMapping("content")
 public class CyContentController {
 
         @Autowired
@@ -67,10 +68,9 @@ public class CyContentController {
 
     //获取前八条
     @RequestMapping("GetEightCyContent")
-    public String GetEightCyContent(CyContent cyContent, ModelMap map){
-        List<CyContent> cyContentList=cyContentService.GetEightCyContent(cyContent);
-        map.addAttribute("cyContentList",cyContentList);
-        return "list";
+    @ResponseBody
+    public List<CyContent> GetEightCyContent(CyContent cyContent, ModelMap map){
+        return cyContentService.GetEightCyContent(cyContent);
     }
 
     //分页查询
