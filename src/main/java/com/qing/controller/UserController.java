@@ -66,17 +66,15 @@ public class UserController {
 
     //获取前八条
     @RequestMapping("GetEightUser")
-    public String GetEightUser(User user, ModelMap map){
-        List<User> userList=userService.GetEightUser(user);
-        map.addAttribute("userList",userList);
-        return "list";
+    @ResponseBody
+    public List<User> GetEightUser(User user){
+        return userService.GetEightUser(user);
     }
 
     //分页查询用户表
     @RequestMapping("queryUserPaging")
-    public String queryUserPaging(Integer page,Integer count,String keyword,ModelMap map){
-        List<User> userList=userService.queryUserPaging((page-1)*count,count,keyword);
-        map.addAttribute("userList",userList);
-        return "list";
+    @ResponseBody
+    public List<User> queryUserPaging(Integer page,Integer count,String keyword){
+        return userService.queryUserPaging((page-1)*count,count,keyword);
     }
 }

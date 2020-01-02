@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -96,35 +97,24 @@ public class CyContentController {
             return "redirect:queryAll";
         }
 
-        //获取前八条
-        @RequestMapping("GetEightCyContent")
-        public String GetEightCyContent(CyContent cyContent, ModelMap map){
-            List<CyContent> cyContentList=cyContentService.GetEightCyContent(cyContent);
-            map.addAttribute("cyContentList",cyContentList);
-            return "list";
-        }
-
         //获取前八条(推送)
         @RequestMapping("GetEightCyContentPushcontent")
-        public String GetEightCyContentPushcontent(CyContent cyContent, ModelMap map){
-            List<CyContent> cyContentList=cyContentService.GetEightCyContentPushcontent(cyContent);
-            map.addAttribute("cyContentList",cyContentList);
-            return "list";
+        @ResponseBody
+        public List<CyContent> GetEightCyContentPushcontent(CyContent cyContent){
+            return cyContentService.GetEightCyContentPushcontent(cyContent);
         }
 
         //分页查询
         @RequestMapping("querCyContent")
-        public String querCyContent(Integer page,Integer count,String keyword,ModelMap map){
-            List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count,keyword);
-            map.addAttribute("cyContentList",cyContentList);
-            return "list";
+        @ResponseBody
+        public List<CyContent> querCyContent(Integer page,Integer count,String keyword){
+            return cyContentService.querCyContent((page-1)*count,count,keyword);
         }
 
         //分页查询(推送)
-        @RequestMapping("querCyClassifyPushcontent")
-        public String querCyClassifyPushcontent(Integer page,Integer count,String keyword,ModelMap map){
-            List<CyContent> cyContentList=cyContentService.querCyClassifyPushcontent((page-1)*count,count,keyword);
-            map.addAttribute("cyContentList",cyContentList);
-            return "list";
+        @RequestMapping("queryPushContent")
+        @ResponseBody
+        public List<CyContent> querCyClassifyPushcontent(Integer page,Integer count,String keyword){
+            return cyContentService.querCyClassifyPushcontent((page-1)*count,count,keyword);
         }
 }
