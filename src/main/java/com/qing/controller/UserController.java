@@ -26,8 +26,14 @@ public class UserController {
 
     //登录
     @RequestMapping("login")
-    private String login(){
-        return "index";
+    private String login(User user){
+        int user_id =  userService.login(user);
+        if (user_id ==0){
+            return "login";
+        }
+       return "index";
+
+
     }
 
     //获取菜单

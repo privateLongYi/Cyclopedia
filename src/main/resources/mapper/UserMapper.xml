@@ -13,4 +13,9 @@
   <select id="GetEightUser">
     select * from User limit 0,8
   </select>
+
+  <!--登陆-->
+  <select id="login">
+    select user_id from user where user_name=#{userName} and `password`=#{password}
+  </select>
 </mapper>

@@ -72,4 +72,12 @@ public class CyContentController {
         map.addAttribute("cyContentList",cyContentList);
         return "list";
     }
+
+    //分页查询
+    @RequestMapping("querCyContent")
+    public String querCyContent(Integer page,Integer count,ModelMap map){
+        List<CyContent> cyContentList=cyContentService.querCyContent((page-1)*count,count);
+        map.addAttribute("cyContentList",cyContentList);
+        return "list";
+    }
 }
