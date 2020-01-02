@@ -25,4 +25,7 @@ public interface ICyContentService {
 
     //查询所有
     List<CyContent>queryall();
+
+    //获取内容表前八条
+    List<CyContent> GetEightCyContent(CyContent cyContent);
 }

@@ -9,4 +9,8 @@
     <result column="is_flag" jdbcType="INTEGER" property="isFlag" />
   </resultMap>
 
+  <!--查询用户表前八条-->
+  <select id="GetEightUser">
+    select * from User limit 0,8
+  </select>
 </mapper>

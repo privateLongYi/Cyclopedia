@@ -53,4 +53,12 @@ public class CyClassifyController {
         return "redirect:queryAllCyClassify";
     }
 
+    //获取前八条
+    @RequestMapping("GetEightCyClassify")
+    public String GetEightCyClassify(CyClassify cyClassify,ModelMap map){
+        List<CyClassify> cyClassifyList=cyClassifyService.GetEightCyClassify(cyClassify);
+        map.addAttribute("CyClassify",cyClassifyList);
+        return "list";
+    }
+
 }

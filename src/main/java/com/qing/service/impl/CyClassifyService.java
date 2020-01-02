@@ -38,4 +38,9 @@ public class CyClassifyService implements ICyClassifyService {
     public List<CyClassify> queryAllCyClassify() {
         return cyClassifyMapper.queryAllCyClassify();
     }
+
+    @Override
+    public List<CyClassify> GetEightCyClassify(CyClassify cyClassify) {
+        return cyClassifyMapper.GetEightCyClassify(cyClassify);
+    }
 }

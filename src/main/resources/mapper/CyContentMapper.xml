@@ -46,4 +46,10 @@
     SELECT * FROM  cy_content
   </select>
 
+  <!--查询内容表前八条-->
+  <select id="GetEightCyContent">
+    select * from cy_classify limit 0,8 WHERE cy_ispush=1
+  </select>
+
+
 </mapper>

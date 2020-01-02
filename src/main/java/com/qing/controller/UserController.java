@@ -1,7 +1,9 @@
 package com.qing.controller;
 
 import com.qing.entity.Menu;
+import com.qing.entity.User;
 import com.qing.service.impl.MenuService;
+import com.qing.service.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,6 +21,8 @@ public class UserController {
 
     @Autowired
     private MenuService menuService;
+    @Autowired
+    private UserService userService;
 
     //登录
     @RequestMapping("login")
@@ -52,6 +56,14 @@ public class UserController {
             }
         }
         return list2;
+    }
+
+    //获取前八条
+    @RequestMapping("GetEightUser")
+    public String GetEightUser(User user, ModelMap map){
+        List<User> userList=userService.GetEightUser(user);
+        map.addAttribute("userList",userList);
+        return "list";
     }
 
 }
