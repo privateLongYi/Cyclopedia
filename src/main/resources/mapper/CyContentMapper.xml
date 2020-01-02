@@ -16,54 +16,80 @@
      INSERT INTO cy_classify(cy_type) VALUES (#{cy_type})
   </insert>
 
-  <!--根据类别删除(推送)-->
-  <delete id="delCyContentbytype">
-    DELETE  FROM cy_content WHERE cy_type=#{cy_type} AND cy_ispush=1
-  </delete>
-
   <!--根据类别删除-->
-  <delete id="delCyContentbytypeT">
+  <delete id="delCyContentbytype">
     DELETE  FROM cy_content WHERE cy_type=#{cy_type} AND cy_ispush=0
   </delete>
 
-  <!--根据id删除(推送)-->
-  <delete id="delCyContentbyid">
-    DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=1
+  <!--根据类别删除(推送)-->
+  <delete id="delCyContentbytypePushcontent">
+    DELETE  FROM cy_content WHERE cy_type=#{cy_type} AND cy_ispush=1
   </delete>
 
   <!--根据id删除-->
-  <delete id="delCyContentbyidT">
+  <delete id="delCyContentbyid">
     DELETE  FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=0
   </delete>
 
-  <!--根据id修改(推送)-->
+  <!--根据id修改-->
   <update id="updCyContentbyid">
-    UPDATE cy_content SET  cy_entryname= #{cy_entryname},cy_imgurl= #{cy_imgurl},cy_type= #{cy_type} WHERE cy_content_id = #{cy_content_id} AND cy_ispush=1
+    UPDATE cy_content SET  cy_entryname= #{cy_entryname},cy_imgurl= #{cy_imgurl},cy_type= #{cy_type} WHERE cy_content_id = #{cy_content_id}
   </update>
 
-  <!--根据id查询(推送)-->
+  <!--根据id查询-->
   <select id="queryCyContentbyid">
-    SELECT * FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=1
+    SELECT * FROM cy_content WHERE cy_content_id=#{cy_content_id} AND cy_ispush=0
+  </select>
+
+  <!--根据类别查询-->
+  <select id="queryCyContentbytype">
+    SELECT * FROM  cy_content WHERE  cy_type=#{cy_type} AND cy_ispush=0
   </select>
 
   <!--根据类别查询(推送)-->
-  <select id="queryCyContentbytype">
+  <select id="queryCyContentbytypePushcontent">
     SELECT * FROM  cy_content WHERE  cy_type=#{cy_type} AND cy_ispush=1
   </select>
 
   <!--查询所有-->
   <select id="queryall">
+    SELECT * FROM  cy_content
+  </select>
+
+  <!--查询所有(推送)-->
+  <select id="queryallPushcontent">
     SELECT * FROM  cy_content WHERE cy_ispush=1
   </select>
 
-  <!--查询内容表前八条(推送)-->
+  <!--查询所有(不推送)-->
+  <select id="queryallNoPushcontent">
+    SELECT * FROM  cy_content WHERE cy_ispush=0
+  </select>
+
+  <!--查询内容表前八条-->
   <select id="GetEightCyContent">
+    select * from cy_content limit 0,8 WHERE cy_ispush=0
+  </select>
+
+  <!--查询内容表前八条(推送)-->
+  <select id="GetEightCyContentPushcontent">
     select * from cy_content limit 0,8 WHERE cy_ispush=1
   </select>
 
-  <!--分页查询内容表(推送)-->
+  <!--分页查询内容表-->
   <select id="querCyClassify">
    SELECT * FROM cy_content
+    <where>
+      <if test="keyword != null and keyword != ''">
+        cy_type_name LIKE '%${keyword}%' AND cy_ispush=0
+      </if>
+    </where>
+    LIMIT  #{page}, #{count}
+  </select>
+
+  <!--分页查询内容表(推送)-->
+  <select id="querCyClassifyPushcontent">
+    SELECT * FROM cy_content
     <where>
       <if test="keyword != null and keyword != ''">
         cy_type_name LIKE '%${keyword}%' AND cy_ispush=1

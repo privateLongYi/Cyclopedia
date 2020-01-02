@@ -72,4 +72,11 @@ public class UserController {
         return "list";
     }
 
+    //分页查询用户表
+    @RequestMapping("queryUserPaging")
+    public String queryUserPaging(Integer page,Integer count,String keyword,ModelMap map){
+        List<User> userList=userService.queryUserPaging((page-1)*count,count,keyword);
+        map.addAttribute("userList",userList);
+        return "list";
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class CyContentService implements ICyContentService {
 
@@ -22,6 +23,9 @@ public class CyContentService implements ICyContentService {
     public void delCyContentbytype(CyContent cyContent) {
         cyContentMapper.delCyContentbytype(cyContent);
     }
+
+    @Override
+    public void delCyContentbytypePushcontent(CyContent cyContent) { cyContentMapper.delCyContentbytypePushcontent(cyContent); }
 
     @Override
     public void delCyContentbyid(CyContent cyContent) {
@@ -44,8 +48,23 @@ public class CyContentService implements ICyContentService {
     }
 
     @Override
+    public List<CyContent> queryCyContentbytypePushcontent(CyContent cyContent) {
+        return cyContentMapper.queryCyContentbytypePushcontent(cyContent);
+    }
+
+    @Override
     public List<CyContent> queryall() {
         return cyContentMapper.queryall();
+    }
+
+    @Override
+    public List<CyContent> queryallPushcontent() {
+        return cyContentMapper.queryallPushcontent();
+    }
+
+    @Override
+    public List<CyContent> queryallNoPushcontent() {
+        return cyContentMapper.queryallNoPushcontent();
     }
 
     @Override
@@ -54,8 +73,18 @@ public class CyContentService implements ICyContentService {
     }
 
     @Override
-    public List<CyContent> querCyContent(Integer page, Integer count,String keyword) {
-        return cyContentMapper.querCyContent(page,count,keyword);
+    public List<CyContent> GetEightCyContentPushcontent(CyContent cyContent) {
+        return cyContentMapper.GetEightCyContentPushcontent(cyContent);
+    }
+
+    @Override
+    public List<CyContent> querCyContent(Integer page, Integer count, String keyword) {
+        return cyContentMapper.querCyContent(page, count, keyword);
+    }
+
+    @Override
+    public List<CyContent> querCyClassifyPushcontent(Integer page, Integer count, String keyword) {
+        return cyContentMapper.querCyClassifyPushcontent(page, count, keyword);
     }
 
 

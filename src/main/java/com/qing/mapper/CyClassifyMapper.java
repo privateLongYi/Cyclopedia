@@ -26,8 +26,6 @@ public interface CyClassifyMapper {
     List<CyClassify> GetEightCyClassify(CyClassify cyClassify);
 
     //分页查询分页表
-    List<CyClassify> querCyClassify(@Param("page") Integer page,
-                                    @Param("count") Integer count,
-                                    @Param("keyword") String keyword);
+    List<CyClassify> querCyClassify(@Param("page") Integer page, @Param("count") Integer count, @Param("keyword") String keyword);
 
 }
