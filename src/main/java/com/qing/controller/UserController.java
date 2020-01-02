@@ -32,6 +32,8 @@ public class UserController {
             return "login";
         }
        return "index";
+
+
     }
 
     //获取菜单
